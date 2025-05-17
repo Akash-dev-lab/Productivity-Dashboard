@@ -1,0 +1,263 @@
+:root {
+  --pri: #000000;
+  --sec: #222222;
+  --tri: #1DCD9F;
+  --qua: #494949;
+}
+
+@font-face {
+  font-family: "light";
+  src: url("./AeonikTRIAL-Light.otf");
+}
+@font-face {
+  font-family: "regular";
+  src: url("./AeonikTRIAL-Regular.otf");
+}
+@font-face {
+  font-family: "bold";
+  src: url("./AeonikTRIAL-Bold.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "bold";
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-width: 1080px) {
+  #main {
+    height: 100%;
+    width: 100%;
+    background-color: var(--pri);
+  }
+  #main nav {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--sec);
+  }
+  #main section.allElems {
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+    position: absolute;
+  }
+  #main section.allElems .elem {
+    background-color: var(--qua);
+    height: 400px;
+    width: 330px;
+    font-size: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    box-shadow: -10px 10px 8px var(--sec);
+    cursor: pointer;
+  }
+  #main section.allElems .elem img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 10px;
+  }
+  #main section.allElems .elem h2 {
+    position: absolute;
+    bottom: 1%;
+    right: 5%;
+    font-family: light;
+    font-size: 30px;
+  }
+  #main section.allElems .elem:active {
+    scale: 0.97;
+  }
+  #main .fullElem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--sec);
+    padding: 40px;
+    display: none;
+    position: absolute;
+  }
+  #main .fullElem .back {
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    background-color: rgb(229, 4, 4);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 8px 9px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 40px 10px rgba(229, 4, 4, 0.9);
+  }
+  #main .fullElem button:active {
+    scale: 0.97;
+  }
+  @keyframes red-glow {
+    0%, 10% {
+      box-shadow: 0 0 10px 0 rgba(229, 4, 4, 0.7);
+    }
+    20% {
+      box-shadow: 0 0 40px 10px rgba(229, 4, 4, 0.9);
+    }
+  }
+  #main .todo-list-fullPage h1 {
+    font-size: 65px;
+  }
+  #main .todo-list-fullPage .todo-container {
+    width: 100%;
+    height: 80%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #main .todo-list-fullPage .todo-container .addTask {
+    width: 33%;
+    height: 100%;
+    background-color: var(--qua);
+    border-radius: 20px;
+  }
+  #main .todo-list-fullPage .todo-container .addTask form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+  }
+  #main .todo-list-fullPage .todo-container .addTask form input {
+    padding: 15px 25px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 28px;
+    background-color: var(--sec);
+    outline: none;
+    margin-bottom: 20px;
+    color: var(--tri);
+  }
+  #main .todo-list-fullPage .todo-container .addTask form textarea {
+    padding: 15px 25px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 28px;
+    background-color: var(--sec);
+    outline: none;
+    margin-bottom: 20px;
+    color: var(--tri);
+  }
+  #main .todo-list-fullPage .todo-container .addTask form .mark-imp {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  #main .todo-list-fullPage .todo-container .addTask form .mark-imp input {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: none;
+  }
+  #main .todo-list-fullPage .todo-container .addTask form .mark-imp label {
+    font-size: 20px;
+    font-family: regular;
+    color: var(--tri);
+    cursor: pointer;
+  }
+  #main .todo-list-fullPage .todo-container .addTask form button {
+    padding: 15px 25px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 28px;
+    background-color: var(--tri);
+    outline: none;
+    font-family: bold;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all ease 0.1s;
+  }
+  #main .todo-list-fullPage .todo-container .allTask {
+    width: 65%;
+    height: 100%;
+    background-color: var(--qua);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    overflow: auto;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--sec);
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: var(--qua);
+    padding: 0 10px;
+    border-radius: 4px;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task h5 {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task h5 span {
+    font-size: 16px;
+    font-family: light;
+    background: none;
+    color: red;
+    padding: 3px 10px;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: rgba(117, 236, 20, 0.7);
+    animation: red-glow 5s infinite ease-in-out;
+    transition: all ease 0.1s;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: var(--sec);
+    color: var(--tri);
+    font-family: regular;
+  }
+}/*# sourceMappingURL=style.css.map */
