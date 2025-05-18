@@ -117,6 +117,13 @@ html, body {
   #main .todo-list-fullPage h1 {
     font-size: 65px;
   }
+  #main .todo-list-fullPage h1 span {
+    background: linear-gradient(45deg, #1DCD9F, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
   #main .todo-list-fullPage .todo-container {
     width: 100%;
     height: 80%;
@@ -219,12 +226,18 @@ html, body {
     padding: 0 10px;
     border-radius: 4px;
   }
+  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-content p {
+    font-size: 30px;
+  }
   #main .todo-list-fullPage .todo-container .allTask .task .dropdown-toggle {
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 28px;
     cursor: pointer;
     margin-left: 10px;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-toggle i {
+    color: var(--tri);
   }
   #main .todo-list-fullPage .todo-container .allTask .task .container {
     display: flex;
@@ -234,6 +247,7 @@ html, body {
   }
   #main .todo-list-fullPage .todo-container .allTask .task h5 {
     font-size: 30px;
+    color: #FFA7C4;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -250,6 +264,9 @@ html, body {
     box-shadow: rgba(117, 236, 20, 0.7);
     animation: red-glow 5s infinite ease-in-out;
     transition: all ease 0.1s;
+  }
+  #main .todo-list-fullPage .todo-container .allTask .task .marked {
+    cursor: pointer;
   }
   #main .todo-list-fullPage .todo-container .allTask .task button {
     padding: 15px 30px;

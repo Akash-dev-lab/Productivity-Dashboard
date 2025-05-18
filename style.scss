@@ -130,6 +130,14 @@ html, body {
 
                      h1 {
                         font-size: 65px;
+
+                        span {
+                            background: linear-gradient(45deg, #1DCD9F, #fff);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            color: transparent;
+                        }
                     }
 
                     .todo-container {
@@ -241,14 +249,22 @@ html, body {
                                     background: var(--qua);
                                     padding: 0 10px;
                                     border-radius: 4px;
+
+                                    p {
+                                        font-size: 30px;
+                                    }
                                 }
 
                                 .dropdown-toggle {
                                     background: none;
                                     border: none;
-                                    font-size: 18px;
+                                    font-size: 28px;
                                     cursor: pointer;
                                     margin-left: 10px;
+                                    
+                                    i {
+                                        color: var(--tri);
+                                    }
                                 }
 
                                 .container {
@@ -260,6 +276,7 @@ html, body {
                                 
                                 h5 {
                                     font-size: 30px;
+                                    color: #FFA7C4;
                                     display: flex;
                                     align-items: center;
                                     gap: 20px;
@@ -277,6 +294,10 @@ html, body {
                                         animation: red-glow 5s infinite ease-in-out;
                                         transition: all ease 0.1s;
                                     }
+                                }
+
+                                .marked {
+                                    cursor: pointer ;
                                 }
 
                                 button {
