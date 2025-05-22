@@ -187,17 +187,21 @@ dayPlannerInp.forEach((elem) => {
 
 dailyPlanner()
 
-let quote = document.querySelector(".para p")
-let writer = document.querySelector(".writer")
+function motivationQuote() {
+  let quote = document.querySelector(".para p")
+  let writer = document.querySelector(".writer")
 
-async function fetchQuote() {
+  async function fetchQuote() {
   let response = await fetch('http://api.quotable.io/random')
   let data = await response.json()
   
   quote.innerHTML = data.content
   writer.innerHTML = data.author
+  }
+
+  fetchQuote()
 }
 
-fetchQuote()
+motivationQuote()
 
 // localStorage.clear()
