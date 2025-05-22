@@ -87,7 +87,7 @@ html, body {
   #main .fullElem {
     height: 100%;
     width: 100%;
-    background-color: var(--sec);
+    background-color: var(--pri);
     padding: 40px;
     display: none;
     position: absolute;
@@ -162,7 +162,7 @@ html, body {
   #main .todo-list-fullPage .addTask {
     width: 33%;
     height: 100%;
-    background-color: var(--pri);
+    background-color: var(--sec);
     border-radius: 20px;
   }
   #main .todo-list-fullPage .addTask form {
@@ -178,7 +178,7 @@ html, body {
     width: 100%;
     border-radius: 5px;
     font-size: 28px;
-    background-color: var(--sec);
+    background-color: var(--pri);
     outline: none;
     margin-bottom: 20px;
     color: var(--tri);
@@ -189,7 +189,7 @@ html, body {
     border: none;
     border-radius: 5px;
     font-size: 28px;
-    background-color: var(--sec);
+    background-color: var(--pri);
     outline: none;
     margin-bottom: 20px;
     color: var(--tri);
@@ -227,7 +227,7 @@ html, body {
   #main .todo-list-fullPage .allTask {
     width: 65%;
     height: 100%;
-    background-color: var(--pri);
+    background-color: var(--sec);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -244,7 +244,7 @@ html, body {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--sec);
+    background-color: var(--pri);
     padding: 20px 30px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -307,7 +307,7 @@ html, body {
     border: none;
     border-radius: 5px;
     font-size: 18px;
-    background-color: var(--sec);
+    background-color: var(--pri);
     color: var(--tri);
     font-family: regular;
     flex-wrap: nowrap;
@@ -366,4 +366,90 @@ html, body {
   #main .daily-planner-fullPage .day-planner .day-planner-time input::placeholder {
     color: var(--qua);
   }
+}
+h1 {
+  font-size: 65px;
+}
+h1 span {
+  background: linear-gradient(45deg, #DE8B03, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.Motivation-fullPage .motivation-container {
+  height: 400px;
+  width: 50%;
+  background-color: var(--tri);
+  position: absolute;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper {
+  z-index: 10;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #231b42;
+  background-color: var(--sec);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper .heading {
+  font-size: 50px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  color: #FFA7C4;
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper img {
+  position: absolute;
+  right: 5%;
+  top: 7%;
+  z-index: -1;
+  opacity: 0.2;
+  color: var(--pri);
+  color: red;
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper .para {
+  display: flex;
+  width: 90%;
+  position: absolute;
+  top: 30%;
+  left: 4%;
+  flex-direction: column;
+  font-family: "regular";
+  flex-wrap: wrap;
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper .para p {
+  color: var(--tri);
+  font-family: "bold";
+  line-height: 1.4;
+  font-size: 30px;
+  letter-spacing: 1.5px;
+}
+.Motivation-fullPage .motivation-container .motivation-wrapper .writer {
+  font-size: 25px;
+  position: absolute;
+  font-family: "light";
+  letter-spacing: 1.5px;
+  bottom: 10%;
+  right: 5%;
+  color: var(--qua);
+}
+.Motivation-fullPage .motivation-container::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50px;
+  background-color: var(--sec);
+  scale: 1.15;
+  filter: blur(50px);
+  z-index: 8;
 }/*# sourceMappingURL=style.css.map */

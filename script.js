@@ -154,10 +154,8 @@ function todoList() {
 
 todoList();
 
-
-
-
-let dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {}
+function dailyPlanner() {
+  let dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {}
 
 let dayPlanner = document.querySelector(".day-planner")
 
@@ -185,5 +183,21 @@ dayPlannerInp.forEach((elem) => {
     localStorage.setItem("dayPlanData", JSON.stringify(dayPlanData))
   })
 })
+}
+
+dailyPlanner()
+
+let quote = document.querySelector(".para p")
+let writer = document.querySelector(".writer")
+
+async function fetchQuote() {
+  let response = await fetch('http://api.quotable.io/random')
+  let data = await response.json()
+  
+  quote.innerHTML = data.content
+  writer.innerHTML = data.author
+}
+
+fetchQuote()
 
 // localStorage.clear()
