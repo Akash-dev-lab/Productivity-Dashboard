@@ -1,8 +1,8 @@
 :root {
-  --pri: #000000;
-  --sec: #222222;
+  --pri: #090F1E;
+  --sec: #151028;
   --tri: #1DCD9F;
-  --qua: #494949;
+  --qua: #DE8B03;
 }
 
 @font-face {
@@ -41,6 +41,7 @@ html, body {
     width: 100%;
     height: 60px;
     background-color: var(--sec);
+    display: none;
   }
   #main section.allElems {
     height: 100%;
@@ -51,6 +52,7 @@ html, body {
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
+    background-color: var(--pri);
     position: absolute;
   }
   #main section.allElems .elem {
@@ -118,7 +120,7 @@ html, body {
     font-size: 65px;
   }
   #main .todo-list-fullPage h1 span {
-    background: linear-gradient(45deg, #1DCD9F, #fff);
+    background: linear-gradient(45deg, #DE8B03, #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -132,20 +134,45 @@ html, body {
     align-items: center;
     justify-content: space-between;
   }
-  #main .todo-list-fullPage .todo-container .addTask {
+  #main .todo-list-fullPage .todo-container .popup-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    display: none;
+  }
+  #main .todo-list-fullPage .todo-container .popup-card .popup-content {
+    background: #000;
+    padding: 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  #main .todo-list-fullPage .todo-container .popup-card .popup-content .close-popup {
+    margin-top: 16px;
+    padding: 6px 18px;
+    border: none;
+    background: #0078d4;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #main .todo-list-fullPage .addTask {
     width: 33%;
     height: 100%;
-    background-color: var(--qua);
+    background-color: var(--pri);
     border-radius: 20px;
   }
-  #main .todo-list-fullPage .todo-container .addTask form {
+  #main .todo-list-fullPage .addTask form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 30px;
     gap: 20px;
   }
-  #main .todo-list-fullPage .todo-container .addTask form input {
+  #main .todo-list-fullPage .addTask form input {
     padding: 15px 25px;
     border: none;
     width: 100%;
@@ -156,7 +183,7 @@ html, body {
     margin-bottom: 20px;
     color: var(--tri);
   }
-  #main .todo-list-fullPage .todo-container .addTask form textarea {
+  #main .todo-list-fullPage .addTask form textarea {
     padding: 15px 25px;
     width: 100%;
     border: none;
@@ -167,48 +194,52 @@ html, body {
     margin-bottom: 20px;
     color: var(--tri);
   }
-  #main .todo-list-fullPage .todo-container .addTask form .mark-imp {
+  #main .todo-list-fullPage .addTask form .mark-imp {
     display: flex;
     gap: 15px;
     justify-content: center;
   }
-  #main .todo-list-fullPage .todo-container .addTask form .mark-imp input {
+  #main .todo-list-fullPage .addTask form .mark-imp input {
     width: 20px;
     height: 20px;
     cursor: pointer;
     border: none;
   }
-  #main .todo-list-fullPage .todo-container .addTask form .mark-imp label {
+  #main .todo-list-fullPage .addTask form .mark-imp label {
     font-size: 20px;
     font-family: regular;
     color: var(--tri);
     cursor: pointer;
   }
-  #main .todo-list-fullPage .todo-container .addTask form button {
+  #main .todo-list-fullPage .addTask form button {
     padding: 15px 25px;
     width: 100%;
     border: none;
     border-radius: 5px;
     font-size: 28px;
-    background-color: var(--tri);
+    background-color: var(--qua);
     outline: none;
     font-family: bold;
     margin-bottom: 20px;
     cursor: pointer;
     transition: all ease 0.1s;
   }
-  #main .todo-list-fullPage .todo-container .allTask {
+  #main .todo-list-fullPage .allTask {
     width: 65%;
     height: 100%;
-    background-color: var(--qua);
+    background-color: var(--pri);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px;
     overflow: auto;
+    /* Hide scrollbar for Chrome, Safari and Opera */
   }
-  #main .todo-list-fullPage .todo-container .allTask .task {
+  #main .todo-list-fullPage .allTask::-webkit-scrollbar {
+    display: none;
+  }
+  #main .todo-list-fullPage .allTask .task {
     display: flex;
     width: 100%;
     align-items: center;
@@ -217,8 +248,15 @@ html, body {
     padding: 20px 30px;
     border-radius: 10px;
     margin-bottom: 10px;
+    gap: 60px;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-content {
+  #main .todo-list-fullPage .allTask .task .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  #main .todo-list-fullPage .allTask .task .container .dropdown-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -226,34 +264,30 @@ html, body {
     padding: 0 10px;
     border-radius: 4px;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-content p {
+  #main .todo-list-fullPage .allTask .task .container .dropdown-content p {
     font-size: 30px;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-toggle {
-    background: none;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  #main .todo-list-fullPage .todo-container .allTask .task .dropdown-toggle i {
+  #main .todo-list-fullPage .allTask .task .container .dropdown-toggle i {
     color: var(--tri);
+    font-size: 32px;
+    cursor: pointer;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+  #main .todo-list-fullPage .allTask .task .container .dlte-btn {
+    display: none;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task h5 {
+  #main .todo-list-fullPage .allTask .task .container .dlte-btn i {
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  #main .todo-list-fullPage .allTask .task h5 {
     font-size: 30px;
     color: #FFA7C4;
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: wrap;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task h5 span {
+  #main .todo-list-fullPage .allTask .task h5 span {
     font-size: 16px;
     font-family: light;
     background: none;
@@ -265,16 +299,71 @@ html, body {
     animation: red-glow 5s infinite ease-in-out;
     transition: all ease 0.1s;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task .marked {
+  #main .todo-list-fullPage .allTask .task .marked {
     cursor: pointer;
   }
-  #main .todo-list-fullPage .todo-container .allTask .task button {
-    padding: 15px 30px;
+  #main .todo-list-fullPage .allTask .task button {
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     font-size: 18px;
     background-color: var(--sec);
     color: var(--tri);
     font-family: regular;
+    flex-wrap: nowrap;
+  }
+  #main .daily-planner-fullPage h1 {
+    font-size: 65px;
+  }
+  #main .daily-planner-fullPage h1 span {
+    background: linear-gradient(45deg, #DE8B03, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  #main .daily-planner-fullPage .day-planner {
+    background-color: var(--pri);
+    height: 85%;
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: auto;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 15px;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time p {
+    position: absolute;
+    color: var(--tri);
+    top: 12%;
+    left: 2%;
+    font-size: 18px;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input {
+    padding: 20px 45px;
+    width: 100%;
+    color: var(--qua);
+    background-color: var(--sec);
+    border-radius: 5px;
+    border: none;
+    font-size: 32px;
+    padding-top: 34px;
+    outline: none;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input::-moz-placeholder {
+    color: var(--qua);
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input::placeholder {
+    color: var(--qua);
   }
 }/*# sourceMappingURL=style.css.map */

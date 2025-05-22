@@ -38,23 +38,29 @@ function todoList() {
     let sum = "";
 
     currentTask.forEach((elem, idx) => {
+      console.log(elem,idx)
       sum += `<div class="task">
                 <h5>${elem.task} ${
         elem.imp && !elem.completed ? '<span class="imp">Imp</span>' : ""
       }</h5>
-                
+
                 <div class="container">
                 <div class="dropdown-content" id="dropdown-${idx}">
                     <p>${elem.details}</p>
                 </div>
                 <button class="dropdown-toggle" data-id="${idx}">
-  <i class="ri-arrow-down-s-fill down"></i>
-  <i class="ri-arrow-up-s-fill up" style="display: none;"></i>
-</button>
-                  <button class="marked" id=${idx} type="button" ${
+                  <i class="ri-arrow-down-s-fill down"></i>
+                  <i class="ri-arrow-up-s-fill up" style="display: none;"></i>
+                </button>
+
+                <button class="dlte-btn" data-id="${idx}">
+                  <i class="ri-delete-bin-6-fill"></i>
+                </button>
+
+                  <button class="marked" data-id="${idx}" type="button" ${
         elem.completed ? "disabled" : ""
       }>
-                    ${elem.completed ? "Completed" : "Mark as Completed"}
+                    ${elem.completed ? "Completed" : "Mark as Completed ❗"}
                   </button>
                 </div>
             </div>`;
@@ -65,15 +71,29 @@ function todoList() {
     let markCompleted = document.querySelectorAll(
       ".task button:not(.dropdown-toggle)"
     );
-    console.log(markCompleted);
+
     markCompleted.forEach((btn) => {
       btn.addEventListener("click", () => {
         btn.textContent = "Completed";
         btn.disabled = true;
-        let impTag = document.querySelector(".imp");
+        const taskElem = btn.closest('.task');
+        const deleteBtn = taskElem.querySelector(".dlte-btn");
+        if (deleteBtn) deleteBtn.style.display = "inline-block";
+        let impTag = taskElem.querySelector(".imp");
         if (impTag) impTag.style.display = "none";
-        currentTask[btn.id].completed = true;
+         const idx = btn.getAttribute("data-id"); // ✅ safer than using .id
+          currentTask[idx].completed = true;
         localStorage.setItem("currentTask", JSON.stringify(currentTask));
+      });
+    });
+
+    let deleteBtn = document.querySelectorAll(".dlte-btn");
+    deleteBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        let idx = btn.getAttribute("data-id");
+        currentTask.splice(idx, 1);
+        localStorage.setItem("currentTask", JSON.stringify(currentTask));
+        renderTask();
       });
     });
 
@@ -103,7 +123,19 @@ function todoList() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (taskInput.value.trim() === "" || textarea.value.trim() === "") {
-      alert("Please fill all details");
+      // Create popup card
+      let popup = document.querySelector(".popup-card");
+      console.log(popup)
+      popup.style.display = 'block'
+      popup.innerHTML = `
+      <div class="popup-content">
+        <p>Please fill all details</p>
+        <button class="close-popup">OK</button>
+      </div>`;
+
+      popup.querySelector(".close-popup").onclick = function() {
+        popup.style.display = 'none';
+      };
       return;
     }
     currentTask.push({
@@ -121,5 +153,37 @@ function todoList() {
 }
 
 todoList();
+
+
+
+
+let dayPlanData = JSON.parse(localStorage.getItem('dayPlanData')) || {}
+
+let dayPlanner = document.querySelector(".day-planner")
+
+let hours = Array.from({length: 18}, (_, idx) => `${6 + idx}:00 - ${7 + idx}:00`)
+
+
+let wholeDaySum = ''
+
+hours.forEach((elem, idx) => {
+  let savedData = dayPlanData[idx] || ''
+  wholeDaySum += `<div class="day-planner-time">
+                    <p>${elem}</p>
+                    <input id="${idx}" type="text" placeholder="..." value="${savedData}">
+                </div>`
+})
+
+dayPlanner.innerHTML = wholeDaySum
+
+let dayPlannerInp = document.querySelectorAll(".day-planner input")
+
+dayPlannerInp.forEach((elem) => {
+  elem.addEventListener('input', () => {
+    dayPlanData[elem.id] = elem.value
+
+    localStorage.setItem("dayPlanData", JSON.stringify(dayPlanData))
+  })
+})
 
 // localStorage.clear()
