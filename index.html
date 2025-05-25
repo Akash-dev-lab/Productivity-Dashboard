@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productivity Dashboard</title>
     <link rel="stylesheet" href="./style.css">
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
     <div id="main">
         <nav>
@@ -17,25 +16,46 @@
         </nav>
 
         <section class="allElems">
-            <div class="todo elem" id="0">
-                <img src="https://i.pinimg.com/736x/9a/9f/41/9a9f414c334c3ac344e3ed04e179581f.jpg" alt="">
-                <h2>To Do List</h2>
-            </div>
-            <div class="daily elem" id="1">
-                <img src="https://i.pinimg.com/736x/3d/2c/64/3d2c64ed52ed0a898f787ece8548f502.jpg" alt="">
-                <h2>Daily Planner</h2>
-            </div>
-            <div class="moti elem" id="2">
-                <img src="https://i.pinimg.com/736x/44/6c/b5/446cb51bb910281d6fff90ad3d0b34cd.jpg" alt="">
-                <h2>Motivation</h2>
-            </div>
-            <div class="pomo elem" id="3">
-                <img src="https://i.pinimg.com/736x/7c/8c/87/7c8c8739e9e56c59f5eae1fd0006e44e.jpg" alt="">
-                <h2>Pomodoro Timer</h2>
-            </div>
-            <div class="goals elem" id="4">
-                <img src="https://i.pinimg.com/736x/69/2d/6a/692d6ad509e1c5f0a40723fec1cce585.jpg" alt="">
-                <h2>Daily Goals</h2>
+
+            <header class="back-header">
+                <header class="front-header">
+                    <div class="header1">
+                        <h2>20 April 2025</h2>
+                        <h1>Saturday, wrong 1:00 pm</h1>
+                        <h4 class="city-name"></h4>
+                    </div>
+
+                    <div class="header2">
+                        <h2>20°C</h2>
+                        <h4>Light rain</h4>
+                        <h3 class="precipitation">Precipitation: 35%</h3>
+                        <h3 class="humidity">Humidity: 49%</h3>
+                        <h3 class="wind">Wind: 10 km/h</h3>
+                    </div>
+                </header>
+            </header>
+
+            <div class="allPages">
+                <div class="todo elem" id="0">
+                    <img src="https://i.pinimg.com/736x/9a/9f/41/9a9f414c334c3ac344e3ed04e179581f.jpg" alt="">
+                    <h2>To Do List</h2>
+                </div>
+                <div class="daily elem" id="1">
+                    <img src="https://i.pinimg.com/736x/3d/2c/64/3d2c64ed52ed0a898f787ece8548f502.jpg" alt="">
+                    <h2>Daily Planner</h2>
+                </div>
+                <div class="moti elem" id="2">
+                    <img src="https://i.pinimg.com/736x/44/6c/b5/446cb51bb910281d6fff90ad3d0b34cd.jpg" alt="">
+                    <h2>Motivation</h2>
+                </div>
+                <div class="pomo elem" id="3">
+                    <img src="https://i.pinimg.com/736x/7c/8c/87/7c8c8739e9e56c59f5eae1fd0006e44e.jpg" alt="">
+                    <h2>Pomodoro Timer</h2>
+                </div>
+                <div class="goals elem" id="4">
+                    <img src="https://i.pinimg.com/736x/69/2d/6a/692d6ad509e1c5f0a40723fec1cce585.jpg" alt="">
+                    <h2>Daily Goals</h2>
+                </div>
             </div>
         </section>
 
@@ -45,7 +65,7 @@
 
             <div class="todo-container">
                 <div class="popup-card">
-                    
+
                 </div>
                 <div class="addTask">
                     <form action="">
@@ -59,7 +79,7 @@
                     </form>
                 </div>
                 <div class="allTask">
-                   
+
                 </div>
             </div>
         </section>
@@ -69,7 +89,7 @@
             <h1>What's Your <span>Plan Today</span> <i class="ri-question-mark"></i></h1>
 
             <div class="day-planner">
-                
+
             </div>
         </section>
 
@@ -79,9 +99,14 @@
             <div class="motivation-container">
                 <div class="motivation-wrapper">
                     <h1 class="heading">Quote of the Day</h1>
-                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/quote-right.png" alt="quote-right"/>
+                    <img width="48" height="48" src="https://img.icons8.com/fluency/48/quote-right.png"
+                        alt="quote-right" />
                     <div class="para">
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab vel ipsa amet, minima laboriosam deleniti ut facere, quaerat impedit repellendus optio saepe architecto natus nostrum reprehenderit voluptas asperiores animi tenetur consequatur minus deserunt labore quos. Accusantium ea repellendus voluptatem atque hic nisi quo nam, explicabo sint ducimus placeat odit exercitationem.</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab vel ipsa amet, minima laboriosam
+                            deleniti ut facere, quaerat impedit repellendus optio saepe architecto natus nostrum
+                            reprehenderit voluptas asperiores animi tenetur consequatur minus deserunt labore quos.
+                            Accusantium ea repellendus voluptatem atque hic nisi quo nam, explicabo sint ducimus placeat
+                            odit exercitationem.</p>
                     </div>
                     <p class="writer">Akash God</p>
                 </div>
@@ -89,8 +114,50 @@
         </section>
 
         <section class="fullElem Pomodoro-fullPage">
-            <h1>Pomodoro Timer</h1>
+            <h1><span>Pomodoro Timer</span></h1>
             <button class="back" id="3" type="button" title="Close"><i class="ri-close-large-line"></i></button>
+
+            <div class="clock">
+                <!-- Circular progress bar SVG overlay -->
+                <svg class="pomo-circular-progress" width="400" height="400">
+                    <circle class="pomo-bg" cx="200" cy="200" r="180" />
+                    <circle class="pomo-fg" cx="200" cy="200" r="180" />
+                </svg>
+                <div class="clock-wrapper">
+                    <h1>25:00</h1>
+                </div>
+            </div>
+
+            <div class="spin-popup">
+
+                <div class="popup-card">
+                    <div class="popup-content">
+                        <p>Time for a <span class="brek">Break!</span></p>
+                        <img src="./coffee-break-unscreen.gif" alt="Break Time Gif" class="break-time-gif">
+                        <button type="button" class="start-break">Start Break</button>
+                    </div>
+                </div>
+
+                <div class="spin-cntrl">
+                    <div class="outer-loader">
+                        <div class="inner-loader">
+                            <div class="loader"></div>
+                            <div class="loader1"></div>
+                            <div class="loader2"></div>
+                        </div>
+                    </div>
+
+                    <div class="work">
+                        <h1>Work Mode</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pomo-timer">
+                <button type="button" class="start-timer" title="Start Timer" aria-label="Start Timer">Start</button>
+                <button type="button" class="pause-timer" title="Pause Timer" aria-label="Pause Timer">Pause</button>
+                <button type="button" class="reset-timer" title="Reset Timer" aria-label="Reset Timer">Reset</button>
+            </div>
         </section>
 
         <section class="fullElem daily-goals-fullPage">
@@ -101,4 +168,5 @@
 
     <script src="./script.js"></script>
 </body>
+
 </html>
