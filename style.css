@@ -190,6 +190,7 @@ html, body {
 }
 #main .todo-list-fullPage h1 {
   font-size: 65px;
+  line-height: 2.5rem;
 }
 #main .todo-list-fullPage h1 span {
   background: linear-gradient(45deg, #DE8B03, #fff);
@@ -968,12 +969,6 @@ html, body {
     gap: 20px;
     align-items: center;
   }
-  #main .todo-list-fullPage .todo-container .popup-card .popup-content {
-    background-color: var(--pri);
-  }
-  #main .todo-list-fullPage .todo-container .popup-card .popup-content .close-popup {
-    background-color: var(--tri);
-  }
   #main .todo-list-fullPage .addTask {
     width: 100%;
   }
@@ -1011,30 +1006,6 @@ html, body {
   }
   #main .todo-list-fullPage .allTask .task .container {
     display: none;
-  }
-  #main .todo-list-fullPage .allTask .task .container .dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    background: var(--qua);
-    padding: 0 10px;
-    border-radius: 4px;
-  }
-  #main .todo-list-fullPage .allTask .task .container .dropdown-content p {
-    font-size: 30px;
-  }
-  #main .todo-list-fullPage .allTask .task .container .dropdown-toggle i {
-    color: var(--tri);
-    font-size: 32px;
-    cursor: pointer;
-  }
-  #main .todo-list-fullPage .allTask .task .container .dlte-btn {
-    display: none;
-  }
-  #main .todo-list-fullPage .allTask .task .container .dlte-btn i {
-    color: red;
-    font-size: 20px;
-    cursor: pointer;
   }
   #main .todo-list-fullPage .allTask .task h5 {
     font-size: 20px;
@@ -1085,9 +1056,6 @@ html, body {
   #main .daily-planner-fullPage .day-planner .day-planner-time input {
     padding: 20px 10px;
     text-align: center;
-  }
-  #main .Motivation-fullPage {
-    display: block;
   }
   #main .Motivation-fullPage h1 {
     font-size: 34px;

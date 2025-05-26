@@ -224,6 +224,7 @@ html, body {
 
                      h1 {
                         font-size: 65px;
+                        line-height: 2.5rem;
 
                         span {
                             background: linear-gradient(45deg, #DE8B03, #fff);
@@ -1132,17 +1133,6 @@ html, body {
                         flex-direction: column;
                         gap: 20px;
                         align-items: center;
-
-                        .popup-card {
-
-                            .popup-content {
-                                background-color: var(--pri);
-
-                                .close-popup {
-                                     background-color: var(--tri);
-                                }
-                            }
-                        }
                         }
 
                         .addTask {
@@ -1192,37 +1182,6 @@ html, body {
 
                                 .container {
                                     display: none;
-
-                                    .dropdown-content {
-                                    max-height: 0;
-                                    overflow: hidden;
-                                    transition: max-height 0.3s ease;
-                                    background: var(--qua);
-                                    padding: 0 10px;
-                                    border-radius: 4px;
-
-                                        p {
-                                            font-size: 30px;
-                                        }
-                                    }
-
-                                    .dropdown-toggle {
-                                    
-                                        i {
-                                            color: var(--tri);
-                                            font-size: 32px;
-                                            cursor: pointer;
-                                        }
-                                    }
-
-                                    .dlte-btn {
-                                        display: none;
-                                        i {
-                                            color: red;
-                                            font-size: 20px;
-                                            cursor: pointer;
-                                        }
-                                    }
                                 }
                                 
                                 h5 {
@@ -1291,8 +1250,6 @@ html, body {
         }
 
         .Motivation-fullPage {
-
-            display: block;
 
                 h1 {
                 font-size: 34px;
