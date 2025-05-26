@@ -1070,4 +1070,45 @@ html, body {
     font-family: regular;
     flex-wrap: nowrap;
   }
+  #main .daily-planner-fullPage h1 {
+    font-size: 34px;
+    width: 80%;
+  }
+  #main .daily-planner-fullPage .day-planner {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time p {
+    position: absolute;
+    color: var(--tri);
+    top: 12%;
+    left: 2%;
+    font-size: 18px;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input {
+    padding: 20px 10px;
+    width: 100%;
+    color: var(--qua);
+    background-color: var(--sec);
+    border-radius: 5px;
+    border: none;
+    font-size: 32px;
+    padding-top: 34px;
+    outline: none;
+    text-align: center;
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input::-moz-placeholder {
+    color: var(--qua);
+  }
+  #main .daily-planner-fullPage .day-planner .day-planner-time input::placeholder {
+    color: var(--qua);
+  }
 }/*# sourceMappingURL=style.css.map */

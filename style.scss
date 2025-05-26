@@ -239,8 +239,6 @@ html, body {
                         height: 80%;
                         margin-top: 40px;
                         display: flex;
-                        // align-items: center;
-                        // justify-content: space-between;
 
                         .popup-card {
                             position: absolute;
@@ -471,7 +469,7 @@ html, body {
                 padding: 30px;
                 display: flex;
                 flex-wrap: wrap;
-                align-items: flex-start;
+                align-items: flex-start; 
                 justify-content: space-between;
                 overflow: auto;
 
@@ -1267,5 +1265,53 @@ html, body {
                             }
                         }
                     }
+
+        .daily-planner-fullPage {
+
+            h1 {
+                font-size: 34px;
+                width: 80%;
+            }
+
+            .day-planner {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            padding: 10px;
+
+                .day-planner-time {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    width: 100%;
+                   
+                    margin-bottom: 15px;
+
+                    p {
+                        position: absolute;
+                        color: var(--tri);
+                        top: 12%;
+                        left: 2%;
+                        font-size: 18px;
+                    }
+
+                    input {
+                        padding: 20px 10px;
+                        width: 100%;
+                        color: var(--qua);
+                        background-color: var(--sec);
+                        border-radius: 5px;
+                        border: none;
+                        font-size: 32px;
+                        padding-top: 34px;
+                        outline: none;
+                        text-align: center;
+                    }
+
+                    input::placeholder {
+                        color: var(--qua);
+                    }
+                }
+            }
+        }
     }
 }
