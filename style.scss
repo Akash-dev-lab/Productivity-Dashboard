@@ -55,7 +55,6 @@ html, body {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            // align-items: flex-start;
             gap: 30px;
             background-color: var(--pri);
             position: absolute;
@@ -186,12 +185,12 @@ html, body {
         }
 
         .fullElem {
-            height: 100%;
-            width: 100%;
+            width: 100vw;
+            height: 100vh;
             background-color: var(--pri);
             padding: 40px;
             display: none;
-            position: absolute;
+            position: fixed;
 
             .back {
                 position: absolute;
@@ -1055,7 +1054,7 @@ html, body {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     #main {
         section.allElems {
         padding: 30px;

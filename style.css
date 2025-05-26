@@ -157,12 +157,12 @@ html, body {
   scale: 0.97;
 }
 #main .fullElem {
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--pri);
   padding: 40px;
   display: none;
-  position: absolute;
+  position: fixed;
 }
 #main .fullElem .back {
   position: absolute;
@@ -904,7 +904,7 @@ html, body {
     font-size: 12px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   #main section.allElems {
     padding: 30px;
     padding-top: 10px;
