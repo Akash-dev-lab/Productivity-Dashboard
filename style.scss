@@ -1279,39 +1279,52 @@ html, body {
             padding: 10px;
 
                 .day-planner-time {
-                    display: flex;
-                    align-items: center;
-                    position: relative;
                     width: 100%;
-                   
-                    margin-bottom: 15px;
 
-                    p {
-                        position: absolute;
-                        color: var(--tri);
-                        top: 12%;
-                        left: 2%;
-                        font-size: 18px;
-                    }
 
                     input {
                         padding: 20px 10px;
-                        width: 100%;
-                        color: var(--qua);
-                        background-color: var(--sec);
-                        border-radius: 5px;
-                        border: none;
-                        font-size: 32px;
-                        padding-top: 34px;
-                        outline: none;
                         text-align: center;
-                    }
-
-                    input::placeholder {
-                        color: var(--qua);
                     }
                 }
             }
+        }
+
+        .Motivation-fullPage {
+
+            display: block;
+
+                h1 {
+                font-size: 34px;
+                width: 80%;
+            }
+
+                .motivation-container {
+                    height: 500px;
+                    width: 80%;
+
+                    .motivation-wrapper {
+
+                        img {
+                            top: 5%;
+                        }
+                        
+                        .para {
+                            top: 40%;
+                            left: 8%;
+
+                            p {
+                                font-family: "regular";
+                                font-size: 20px;
+                            }
+                        }
+
+                        .writer {
+                            font-size: 16px;
+                            right: 10%;
+                        }
+                    }
+                }
         }
     }
 }
