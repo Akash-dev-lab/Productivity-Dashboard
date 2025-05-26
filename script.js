@@ -359,7 +359,6 @@ setTimerDisplay(totalSeconds);
 pomodoroTimer()
 
 function weatherFunctionality() {
-  const apiKey = "83485b87c9ee485c85934621252405";
 
   const header1Time = document.querySelector(".header1 h1");
   const header1Date = document.querySelector(".header1 h2");
@@ -375,7 +374,7 @@ function weatherFunctionality() {
   async function weatherAPICall(lat, lon) {
     try {
       const response = await fetch(
-        `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lon}`
+        `https://api.weatherapi.com/v1/current.json?key=83485b87c9ee485c85934621252405&q=${lat},${lon}`
       );
       data = await response.json();
 
