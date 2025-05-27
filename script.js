@@ -87,7 +87,7 @@ function todoList() {
         if (deleteBtn) deleteBtn.style.display = "inline-block";
         let impTag = taskElem.querySelector(".imp");
         if (impTag) impTag.style.display = "none";
-         const idx = btn.getAttribute("data-id"); // ✅ safer than using .id
+         const idx = btn.getAttribute("data-id");
           currentTask[idx].completed = true;
         localStorage.setItem("currentTask", JSON.stringify(currentTask));
       });
@@ -274,7 +274,7 @@ startBtn.addEventListener("click", () => {
   spinCntrl.style.display = "block";
   let workText = document.querySelector(".work h1");
   workText.style.display = "block"
-  timerInterval = setInterval(startTimer, 1);
+  timerInterval = setInterval(startTimer, 10);
 });
 
 pauseBtn.addEventListener("click", () => {

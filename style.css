@@ -1082,9 +1082,6 @@ html, body {
     font-size: 16px;
     right: 10%;
   }
-  #main .Pomodoro-fullPage {
-    display: block;
-  }
   #main .Pomodoro-fullPage h1 {
     font-size: 45px;
     width: 80%;
