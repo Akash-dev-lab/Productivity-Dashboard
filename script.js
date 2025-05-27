@@ -252,7 +252,9 @@ function startTimer() {
   totalSeconds--;
   if (totalSeconds < 0) {
     clearInterval(timerInterval);
-    timer.innerHTML = "Ended";
+    // timer.innerHTML = none;
+    let time = document.querySelector(".clock-wrapper h1");
+    time.style.opacity = 0.2;
     popup.style.display = 'block';
     work.style.display = "none";
     circle.style.strokeDashoffset = circleLength;
@@ -268,6 +270,10 @@ startBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   pauseBtn.style.display = "block";
   work.style.display = "block";
+   let spinCntrl = document.querySelector(".spin-cntrl .outer-loader");
+  spinCntrl.style.display = "block";
+  let workText = document.querySelector(".work h1");
+  workText.style.display = "block"
   timerInterval = setInterval(startTimer, 1);
 });
 
@@ -281,6 +287,9 @@ breakBtn.addEventListener("click", () => {
   startBtn.style.display = "none";
   breakBtn.innerHTML = "Break Started";
   totalSeconds = 300;
+  let time = document.querySelector(".clock-wrapper h1");
+  time.style.opacity = 1;
+  popup.style.display = 'none';
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
     setTimerDisplay(totalSeconds);
@@ -303,9 +312,16 @@ breakBtn.addEventListener("click", () => {
 
 resetBtn.addEventListener("click", () => {
   startBtn.style.display = "block";
+  pauseBtn.style.display = "none";
   popup.style.display = 'none';
   breakBtn.innerHTML = "Start Break";
+  let time = document.querySelector(".clock-wrapper h1");
+  time.style.opacity = 1;
   breakBtn.disabled = false;
+  let spinCntrl = document.querySelector(".spin-cntrl .outer-loader");
+  spinCntrl.style.display = "none";
+  let workText = document.querySelector(".work h1");
+  workText.style.display = "none"
   clearInterval(timerInterval);
 
   let current = totalSeconds;

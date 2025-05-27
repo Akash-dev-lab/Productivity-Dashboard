@@ -194,7 +194,7 @@ html, body {
 
             .back {
                 position: absolute;
-                top: 60px;
+                top: 40px;
                 right: 40px;
                 background-color: rgb(229, 4, 4);
                 border: none;
@@ -636,7 +636,7 @@ html, body {
 
                     .clock-wrapper {
                         z-index: 9;
-                        position: absolute;
+                        position: relative;
                         height: 100%;
                         width: 100%;
                         background-color: var(--sec);
@@ -650,6 +650,8 @@ html, body {
                             font-size: 110px;
                             color: var(--qua);
                             text-shadow: 0 0 90px var(--sec);
+                            position: absolute;
+                            left: 13%;
                         }
                     }
 
@@ -664,7 +666,6 @@ html, body {
                     }
                     .pomo-bg {
                         fill: none;
-                        // stroke: var(--sec);
                         stroke-width: 3;
                     }
                     .pomo-fg {
@@ -1115,7 +1116,7 @@ html, body {
 
             .back {
                 position: absolute;
-                top: 45px;
+                top: 52px;
                 right: 40px;
                 font-size: 15px;
                 padding: 5px 6px;
@@ -1125,7 +1126,7 @@ html, body {
         .todo-list-fullPage {
 
                      h1 {
-                        font-size: 28px;
+                        font-size: 30px;
                         width: 80%;
                     }
 
@@ -1252,7 +1253,7 @@ html, body {
         .Motivation-fullPage {
 
                 h1 {
-                font-size: 34px;
+                font-size: 38px;
                 width: 80%;
             }
 
@@ -1281,6 +1282,79 @@ html, body {
                             right: 10%;
                         }
                     }
+                }
+        }
+
+        .Pomodoro-fullPage {
+
+            display: block;
+
+                h1 {
+                    font-size: 45px;
+                    width: 80%
+                }
+
+                .spin-popup {
+
+                    .popup-card {
+                            
+                            .popup-content {
+                                border: none;
+
+                                
+
+                                p {
+                                    font-size: 28px;
+                                    
+                                    color: var(--tri);
+
+                                    span {
+                                        color: var(--tri)
+                                    }
+                                }
+                            }
+                        }
+                    
+                    .spin-cntrl {
+
+                        .outer-loader {
+                            width: 100px;
+                            height: 100px;
+                            top: 20%;
+
+                            .inner-loader {
+                                width: 100px;
+                                height: 100px;
+
+                                .loader {
+                                    width: 100px;
+                                    height: 100px;
+                                }
+
+                                .loader1 {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+
+                                .loader2 {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                            }
+                        }
+
+                        .work {
+                            left: 78%;
+                            top: 20%;
+
+                        h1 {
+                            color: var(--qua);
+                            font-family: "light";
+                            font-size: 25px;
+                        }
+                    }
+                }
+                
                 }
         }
     }

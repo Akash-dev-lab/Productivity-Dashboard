@@ -166,7 +166,7 @@ html, body {
 }
 #main .fullElem .back {
   position: absolute;
-  top: 60px;
+  top: 40px;
   right: 40px;
   background-color: rgb(229, 4, 4);
   border: none;
@@ -548,7 +548,7 @@ html, body {
 }
 #main .Pomodoro-fullPage .clock .clock-wrapper {
   z-index: 9;
-  position: absolute;
+  position: relative;
   height: 100%;
   width: 100%;
   background-color: var(--sec);
@@ -562,6 +562,8 @@ html, body {
   font-size: 110px;
   color: var(--qua);
   text-shadow: 0 0 90px var(--sec);
+  position: absolute;
+  left: 13%;
 }
 #main .Pomodoro-fullPage .clock .pomo-circular-progress {
   position: absolute;
@@ -955,13 +957,13 @@ html, body {
   }
   #main .fullElem .back {
     position: absolute;
-    top: 45px;
+    top: 52px;
     right: 40px;
     font-size: 15px;
     padding: 5px 6px;
   }
   #main .todo-list-fullPage h1 {
-    font-size: 28px;
+    font-size: 30px;
     width: 80%;
   }
   #main .todo-list-fullPage .todo-container {
@@ -1058,7 +1060,7 @@ html, body {
     text-align: center;
   }
   #main .Motivation-fullPage h1 {
-    font-size: 34px;
+    font-size: 38px;
     width: 80%;
   }
   #main .Motivation-fullPage .motivation-container {
@@ -1079,5 +1081,52 @@ html, body {
   #main .Motivation-fullPage .motivation-container .motivation-wrapper .writer {
     font-size: 16px;
     right: 10%;
+  }
+  #main .Pomodoro-fullPage {
+    display: block;
+  }
+  #main .Pomodoro-fullPage h1 {
+    font-size: 45px;
+    width: 80%;
+  }
+  #main .Pomodoro-fullPage .spin-popup .popup-card .popup-content {
+    border: none;
+  }
+  #main .Pomodoro-fullPage .spin-popup .popup-card .popup-content p {
+    font-size: 28px;
+    color: var(--tri);
+  }
+  #main .Pomodoro-fullPage .spin-popup .popup-card .popup-content p span {
+    color: var(--tri);
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .outer-loader {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .outer-loader .inner-loader {
+    width: 100px;
+    height: 100px;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .outer-loader .inner-loader .loader {
+    width: 100px;
+    height: 100px;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .outer-loader .inner-loader .loader1 {
+    width: 50px;
+    height: 50px;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .outer-loader .inner-loader .loader2 {
+    width: 50px;
+    height: 50px;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .work {
+    left: 78%;
+    top: 20%;
+  }
+  #main .Pomodoro-fullPage .spin-popup .spin-cntrl .work h1 {
+    color: var(--qua);
+    font-family: "light";
+    font-size: 25px;
   }
 }/*# sourceMappingURL=style.css.map */
