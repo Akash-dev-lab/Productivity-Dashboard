@@ -32,21 +32,51 @@ html, body {
 }
 
 #main {
-  min-height: 100%;
   width: 100%;
+  display: flex;
   background-color: var(--pri);
 }
 #main nav {
   position: fixed;
-  width: 100%;
+  top: 0;
+  z-index: 99;
   height: 60px;
-  background-color: var(--sec);
-  display: none;
+  width: 100%;
+  margin-bottom: 35px;
+  padding: 30px 40px;
+}
+#main nav .nav-in {
+  display: flex;
+  background-color: var(--tri);
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+#main nav .nav-in h2 {
+  font-size: 30px;
+  font-weight: 700;
+}
+#main nav .nav-in .theme {
+  background-color: var(--pri);
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+#main nav .nav-in .theme h4 {
+  color: var(--qua);
+  font-weight: 700;
+  font-size: 20px;
+  pointer-events: none;
+}
+#main nav .nav-in .theme:active {
+  scale: 0.96;
 }
 #main section.allElems {
   width: 100%;
   padding: 40px;
-  padding-top: 80px;
+  padding-top: 150px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -124,6 +154,7 @@ html, body {
 }
 #main section.allElems .allPages {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
 }
@@ -763,54 +794,12 @@ html, body {
   box-shadow: -1px 1px 0px violet;
 }
 
-@media (min-width: 1500px) {
+@media (max-width: 600px) {
   #main section.allElems {
-    padding: 30px;
-    padding-top: 80px;
     gap: 0px;
   }
-  #main section.allElems .back-header .front-header {
-    gap: 20px;
-    display: flex;
-    flex-direction: row;
-  }
-  #main section.allElems .back-header .front-header .header1 {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    gap: 20px;
-  }
-  #main section.allElems .back-header .front-header .header1 h1 {
-    font-size: 5rem;
-  }
-  #main section.allElems .back-header .front-header .header1 h2 {
-    font-size: 2.5rem;
-  }
-  #main section.allElems .back-header .front-header .header1 h4 {
-    font-size: 2.5rem;
-  }
-  #main section.allElems .back-header .front-header .header2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-  #main section.allElems .back-header .front-header .header2 h2 {
-    font-size: 4rem;
-  }
-  #main section.allElems .back-header .front-header .header2 h4 {
-    font-size: 2.2rem;
-  }
-  #main section.allElems .back-header .front-header .header2 h3 {
-    font-size: 1.3rem;
-  }
-}
-@media (max-width: 968px) {
-  #main section.allElems {
-    padding: 30px;
+  #main section.allElems .back-header {
     padding-top: 10px;
-    gap: 0px;
   }
   #main section.allElems .back-header .front-header {
     gap: 20px;
@@ -822,108 +811,7 @@ html, body {
     gap: 20px;
   }
   #main section.allElems .back-header .front-header .header1 h1 {
-    font-size: 60px;
-  }
-  #main section.allElems .back-header .front-header .header1 h2 {
-    font-size: 30px;
-  }
-  #main section.allElems .back-header .front-header .header1 h4 {
-    font-size: 20px;
-  }
-  #main section.allElems .back-header .front-header .header2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-  #main section.allElems .back-header .front-header .header2 h2 {
     font-size: 40px;
-  }
-  #main section.allElems .back-header .front-header .header2 h4 {
-    font-size: 30px;
-  }
-  #main section.allElems .back-header .front-header .header2 h3 {
-    font-size: 16px;
-  }
-  #main section.allElems .allPages {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3.5rem;
-    width: 100%;
-    max-width: 921px;
-    margin: 0 auto;
-  }
-  #main section.allElems .allPages .elem {
-    width: 100%;
-  }
-}
-@media (max-width: 530px) {
-  #main section.allElems {
-    padding: 30px;
-    padding-top: 10px;
-    gap: 0px;
-  }
-  #main section.allElems .back-header .front-header {
-    gap: 20px;
-  }
-  #main section.allElems .back-header .front-header .header1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  #main section.allElems .back-header .front-header .header1 h1 {
-    font-size: 60px;
-  }
-  #main section.allElems .back-header .front-header .header1 h2 {
-    font-size: 30px;
-  }
-  #main section.allElems .back-header .front-header .header1 h4 {
-    font-size: 20px;
-  }
-  #main section.allElems .back-header .front-header .header2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-  }
-  #main section.allElems .back-header .front-header .header2 h2 {
-    font-size: 40px;
-  }
-  #main section.allElems .back-header .front-header .header2 h4 {
-    font-size: 30px;
-  }
-  #main section.allElems .back-header .front-header .header2 h3 {
-    font-size: 16px;
-  }
-  #main section.allElems .allPages {
-    grid-template-columns: 1fr;
-    max-width: 100%;
-    gap: 3.5rem;
-  }
-  #main section.allElems .allPages .elem {
-    font-size: 12px;
-  }
-}
-@media (max-width: 500px) {
-  #main section.allElems {
-    padding: 30px;
-    padding-top: 10px;
-    gap: 0px;
-  }
-  #main section.allElems .back-header .front-header {
-    gap: 20px;
-  }
-  #main section.allElems .back-header .front-header .header1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  #main section.allElems .back-header .front-header .header1 h1 {
-    font-size: 60px;
   }
   #main section.allElems .back-header .front-header .header1 h2 {
     font-size: 30px;

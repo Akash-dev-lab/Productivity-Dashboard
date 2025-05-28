@@ -3,10 +3,12 @@ function openFeature() {
   let allFullElems = document.querySelectorAll(".fullElem");
   let allBackBtn = document.querySelectorAll(".fullElem .back");
   let weatherelem = document.querySelectorAll(".allElems .back-header");
+  let nav = document.querySelector(".nav");
 
   allElems.forEach((data) => {
     data.addEventListener("click", () => {
       allFullElems[data.id].style.display = "block";
+      nav.style.display = "none";
       weatherelem.forEach((elem) => {
         elem.style.display = "none";
       })
@@ -16,6 +18,7 @@ function openFeature() {
   allBackBtn.forEach((back) => {
     back.addEventListener("click", () => {
       allFullElems[back.id].style.display = "none";
+      nav.style.display = "block";
       weatherelem.forEach((elem) => {
         elem.style.display = "block";
       })
@@ -482,3 +485,38 @@ function changeBackground(weather) {
   }
 }
  changeBackground()
+
+ function changeTheme() {
+
+    var theme = document.querySelector('.theme')
+    var rootElement = document.documentElement
+
+    var flag = 0
+    theme.addEventListener('click', function () {
+
+        if (flag == 0) {
+            rootElement.style.setProperty('--pri', '#090F1E')
+            rootElement.style.setProperty('--sec', '#151028')
+            rootElement.style.setProperty('--tri', '#1DCD9F')
+            rootElement.style.setProperty('--qua', '#DE8B03')
+            flag = 1
+        } else if (flag == 1) {
+            rootElement.style.setProperty('--pri', '#F1EFEC')
+            rootElement.style.setProperty('--sec', '#030303')
+            rootElement.style.setProperty('--tri', '#D4C9BE')
+            rootElement.style.setProperty('--qua', '#123458')
+            flag = 2
+        } else if (flag == 2) {
+            rootElement.style.setProperty('--pri', '#F8F4E1')
+            rootElement.style.setProperty('--sec', '#381c0a')
+            rootElement.style.setProperty('--tri', '#FEBA17')
+            rootElement.style.setProperty('--qua', '#74512D')
+            flag = 0
+        }
+
+    })
+
+
+}
+
+changeTheme()
