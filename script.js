@@ -44,11 +44,15 @@ function todoList() {
 
   function renderTask() {
     let allTask = document.querySelector(".allTask");
+    let allTaskMobile = document.querySelector(".modal");
+   
 
     let sum = "";
+    let mobile = "";
 
     currentTask.forEach((elem, idx) => {
-      sum += `<div class="task">
+      sum += `
+      <div class="task">
                 <h5>${elem.task} ${
         elem.imp && !elem.completed ? '<span class="imp">Imp</span>' : ""
       }</h5>
@@ -73,9 +77,42 @@ function todoList() {
                   </button>
                 </div>
             </div>`;
+
+        mobile += `
+                      <button class="back" id="5" type="button" title="Close"><i class="ri-close-large-line"></i></button>
+                      <div class="modal-content">
+                      
+                        <h2>${elem.details}</h2>
+                        <button class="dlte-btn" data-id="${idx}">
+                  <i class="ri-delete-bin-6-fill"></i>
+                </button>
+                      </div>
+                   </div>`  
     });
 
+    allTaskMobile.innerHTML = mobile;
     allTask.innerHTML = sum;
+
+    let taskCard = document.querySelector(".allTask");
+
+   console.log(currentTask)
+
+    let taskBackBtn = document.querySelectorAll(".modal .back");
+
+    taskBackBtn.forEach((data) => {
+      data.addEventListener("click", () => {
+      allTaskMobile.style.display = "none";
+    })
+    })
+
+    if(currentTask.length == 0) {
+        allTaskMobile.style.display = "none";
+      }
+    
+      taskCard.addEventListener("click", () => {
+      allTaskMobile.style.display = "block";
+    })
+
 
     let markCompleted = document.querySelectorAll(
       ".task button:not(.dropdown-toggle)"
@@ -134,7 +171,6 @@ function todoList() {
     if (taskInput.value.trim() === "" || textarea.value.trim() === "") {
       // Create popup card
       let popup = document.querySelector(".popup-card");
-      console.log(popup)
       popup.style.display = 'block'
       popup.innerHTML = `
       <div class="popup-content">

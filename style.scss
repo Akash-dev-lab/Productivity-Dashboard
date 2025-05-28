@@ -38,8 +38,6 @@ html, body {
 #main {
     width: 100%;
     display: flex;
-    // flex-direction: column;
-
     background-color: var(--pri);
 
         nav {
@@ -55,7 +53,8 @@ html, body {
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
-                background-color: var(--tri);
+                // background-color: var(--sec);
+                border: 1px solid #231b42;
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
@@ -66,13 +65,13 @@ html, body {
                 border-radius: 10px;
 
                 h2 {
-                    font-size: 30px;
-                    font-weight: 700;
+                    font-size: 60px;
+                    color: var(--tri);
                 }
 
                 .theme {
-                    background-color: var(--pri);
-                    padding: 12px 20px;
+                    // background-color: var(--pri);
+                    // padding: 12px 20px;
                     border-radius: 10px;
                     -webkit-transition: all ease 0.2s;
                     -o-transition: all ease 0.2s;
@@ -80,10 +79,13 @@ html, body {
                     cursor: pointer;
 
                     h4 {
-                        color: var(--qua);
                         font-weight: 700;
                         font-size: 20px;
                         pointer-events: none;
+
+                        i {
+                            color: var(--qua);
+                        }
                     }
                 }
 
@@ -96,7 +98,7 @@ html, body {
         section.allElems {
             width: 100%;
             padding: 40px;
-            padding-top: 150px;
+            padding-top: 180px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -285,6 +287,7 @@ html, body {
                         height: 80%;
                         margin-top: 40px;
                         display: flex;
+                        gap: 2rem;
 
                         .popup-card {
                             position: absolute;
@@ -386,6 +389,10 @@ html, body {
                                     transition: all ease 0.1s;
                                 }
                             }
+                        }
+
+                        .modal-content {
+                            display: none;
                         }
 
                         .allTask {
@@ -922,54 +929,84 @@ html, body {
         
     }
 
+    @media (min-width: 600px) {
+        
+    }
+
 @media (max-width: 600px) {
     #main {
-        section.allElems {
-        gap: 0px;
 
-        .back-header {
-
-                padding-top: 10px;
-
-            .front-header {
-                gap: 20px;
-
-                .header1 {
+        nav {
+            .nav-in {
+                h2 {
+                    font-size: 18px;
+                    width: 50%;
                     display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 20px;
-                    h1 {
-                        font-size: 40px;
-                    }
-
-                    h2 {
-                        font-size: 30px;
-                    }
-                    h4 {
-                        font-size: 20px;
-                    }
+                    flex-wrap: wrap;
+                    font-family: regular;
                 }
-                .header2 {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 15px;
-                    h2 {
-                        font-size: 40px;
-                    }
+
+                .theme {
 
                     h4 {
-                        font-size: 30px;
-                    }
-
-                    h3 {
-                        font-size: 16px;
+                        
+                        i {
+                            color: var(--qua);
+                            font-size: 24px;
+                        }
                     }
                 }
             }
         }
+
+        section.allElems {
+
+            padding-top: 150px;
+            gap: 0px;
+
+            .back-header {
+
+                    padding-top: 10px;
+
+                .front-header {
+                    gap: 20px;
+
+                    .header1 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 20px;
+                        h1 {
+                            font-size: 40px;
+                        }
+
+                        h2 {
+                            font-size: 30px;
+                        }
+                        h4 {
+                            font-size: 20px;
+                        }
+                    }
+                    .header2 {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 15px;
+                        h2 {
+                            font-size: 40px;
+                        }
+
+                        h4 {
+                            font-size: 30px;
+                        }
+
+                        h3 {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
             .allPages {
                 grid-template-columns: 1fr;
                 max-width: 100%;
@@ -1006,6 +1043,7 @@ html, body {
 
                         .addTask {
                             width: 100%;
+                            height: auto;
 
                             form {
                                 padding: 20px;
@@ -1036,6 +1074,49 @@ html, body {
                             }
                         }
 
+                        .modal {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            margin-bottom: 20px;
+                            padding: 50px;
+                            height: 100%;
+                            width: 100vw;
+                            display: none;
+                            gap: 20px;
+                            backdrop-filter: blur(12px);
+                            background-color: rgba(0, 0, 0, 0.4);
+                            z-index: 999;
+                            overflow-y: auto;
+
+                            .modal-content {
+                                position: relative;
+                                top: 15%;
+                                left: 1.4rem;
+                                margin-bottom: 40px;
+                                background: rgba(255, 255, 255, 0.05);
+                                border: 1px solid rgba(255, 255, 255, 0.2);
+                                border-radius: 20px;
+                                padding: 2rem;
+                                width: 90%;
+                                display: block;
+                                max-width: 500px;
+                                color: white;
+                                box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2), 0 0 15px rgba(255, 0, 255, 0.3);
+                                backdrop-filter: blur(15px);
+                                animation: fadeIn 0.3s ease-out;
+
+                                .dlte-btn {
+                                        i {
+                                            color: red;
+                                            font-size: 20px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                            }
+                        }
+
+
                         .allTask {
                             width: 100%;
                             padding: 0px;
@@ -1044,10 +1125,8 @@ html, body {
 
                             .task {
                                 background-color: var(--sec);
-                                padding: 0px 15px;
-                                border-radius: 10px;
-                                margin-bottom: 10px;
-                                gap: 60px;
+                                padding: 10px 25px;
+                                border-radius: 20px;
 
                                 .container {
                                     display: none;
@@ -1156,7 +1235,7 @@ html, body {
         .Pomodoro-fullPage {
 
                 h1 {
-                    font-size: 45px;
+                    font-size: 40px;
                     width: 80%
                 }
 
