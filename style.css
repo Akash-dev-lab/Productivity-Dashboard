@@ -3,6 +3,7 @@
   --sec: #151028;
   --tri: #1dcd9f;
   --qua: #de8b03;
+  --five: #fff;
 }
 
 @font-face {
@@ -21,7 +22,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #fff;
+  color: var(--five);
   font-family: "bold";
 }
 
@@ -1100,7 +1101,8 @@ body {
     gap: 20px;
   }
   #main section.allElems .back-header .front-header .header1 h1 {
-    font-size: 40px;
+    font-size: 37px;
+    text-align: center;
   }
   #main section.allElems .back-header .front-header .header1 h2 {
     font-size: 30px;
@@ -1120,6 +1122,7 @@ body {
   }
   #main section.allElems .back-header .front-header .header2 h4 {
     font-size: 30px;
+    text-align: center;
   }
   #main section.allElems .back-header .front-header .header2 h3 {
     font-size: 16px;

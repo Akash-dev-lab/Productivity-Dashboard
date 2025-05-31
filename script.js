@@ -514,12 +514,14 @@ weatherFunctionality();
             rootElement.style.setProperty('--sec', '#000000')
             rootElement.style.setProperty('--tri', '#FEBA17')
             rootElement.style.setProperty('--qua', '#169976')
+            // rootElement.style.setProperty('--five', '#333')
             flag = 1
         } else if (flag == 1) {
             rootElement.style.setProperty('--pri', '#F8F4E1')
             rootElement.style.setProperty('--sec', '#222831')
-            rootElement.style.setProperty('--tri1', '#948979')
-            rootElement.style.setProperty('--tri2', '#393E46')
+            rootElement.style.setProperty('--tri', '#948979')
+            rootElement.style.setProperty('--qua', '#393E46')
+            rootElement.style.setProperty('--five', '#333')
             flag = 2
         } else if (flag == 2) {
             rootElement.style.setProperty('--pri', '#F8F4E1')
