@@ -313,7 +313,7 @@ startBtn.addEventListener("click", () => {
   spinCntrl.style.display = "block";
   let workText = document.querySelector(".work h1");
   workText.style.display = "block"
-  timerInterval = setInterval(startTimer, 10);
+  timerInterval = setInterval(startTimer, 1000);
 });
 
 pauseBtn.addEventListener("click", () => {
@@ -501,27 +501,6 @@ function weatherFunctionality() {
 
 weatherFunctionality();
 
-
-function changeBackground(weather) {
-  const video = document.getElementById("bgVideo");
-
-  switch (weather) {
-    case "rain":
-      video.src = "rain.mp4";
-      break;
-    case "clear":
-      video.src = "sunny.mp4";
-      break;
-    case "clouds":
-      video.src = "clouds.mp4";
-      break;
-    case "thunderstorm":
-      video.src = "thunderstorm.mp4";
-      break;
-  }
-}
- changeBackground()
-
  function changeTheme() {
 
     var theme = document.querySelector('.theme')
@@ -529,18 +508,18 @@ function changeBackground(weather) {
 
     var flag = 0
     theme.addEventListener('click', function () {
-
+      console.log('Theme clicked');
         if (flag == 0) {
-            rootElement.style.setProperty('--pri', '#090F1E')
-            rootElement.style.setProperty('--sec', '#151028')
-            rootElement.style.setProperty('--tri', '#1DCD9F')
-            rootElement.style.setProperty('--qua', '#DE8B03')
+            rootElement.style.setProperty('--pri', '#000000')
+            rootElement.style.setProperty('--sec', '#000000')
+            rootElement.style.setProperty('--tri', '#FEBA17')
+            rootElement.style.setProperty('--qua', '#169976')
             flag = 1
         } else if (flag == 1) {
-            rootElement.style.setProperty('--pri', '#F1EFEC')
-            rootElement.style.setProperty('--sec', '#030303')
-            rootElement.style.setProperty('--tri', '#D4C9BE')
-            rootElement.style.setProperty('--qua', '#123458')
+            rootElement.style.setProperty('--pri', '#F8F4E1')
+            rootElement.style.setProperty('--sec', '#222831')
+            rootElement.style.setProperty('--tri1', '#948979')
+            rootElement.style.setProperty('--tri2', '#393E46')
             flag = 2
         } else if (flag == 2) {
             rootElement.style.setProperty('--pri', '#F8F4E1')
@@ -556,3 +535,174 @@ function changeBackground(weather) {
 }
 
 changeTheme()
+
+function dailyGoals() {
+  let goals = JSON.parse(localStorage.getItem('dailyGoals')) || [];
+
+  let newGoal = document.querySelector(".add-goal-btn")
+  let setGoal = document.querySelector(".set-goal")
+
+  newGoal.addEventListener("click", () => {
+    addNewGoal()
+  })
+
+  function renderGoals() {
+      const list = document.querySelector('.goal-item');
+      list.innerHTML = '';
+
+      // list.style.display = "block"
+
+      const now = new Date();
+
+      goals.forEach((goal, index) => {
+        const card = document.createElement('div');
+        card.className = 'goal-card';
+        if (goal.completed) card.classList.add('completed');
+
+        const end = new Date(goal.endDate);
+        const progress = Math.min(100, Math.floor((now - new Date(goal.startDate)) / (end - new Date(goal.startDate)) * 100));
+        const daysLeft = Math.ceil((end - now) / (1000 * 60 * 60 * 24));
+
+        if (daysLeft === 1) {
+          alert(`Reminder: Only 1 day left to complete "${goal.title}"`);
+        } else if (daysLeft <= 0 && !goal.completed) {
+          alert(`Deadline Passed: "${goal.title}"`);
+        }
+
+        card.innerHTML = `
+          <div class="goal-header">
+            <div class="mark">
+              <input name="checkbox" type="checkbox" class="checkbox" ${goal.completed ? 'checked' : ''} onchange="toggleCompleted(${index})">
+              <span class="goal-title">${goal.title}</span>
+            </div>
+            <div class="goal-category">${goal.category}</div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress" style="width: ${progress}%"></div>
+          </div>
+          <div class="goal-footer">
+            <span>${daysLeft} days left</span>
+            <button class="delete-btn"><i class="ri-delete-bin-6-fill"></i></button>
+          </div>
+        `;
+
+        if (now > end || goal.completed) {
+          card.querySelector('.delete-btn').style.display = 'block';
+        }
+
+        list.appendChild(card);
+
+         let taskdeltbtn = card.querySelector(".delete-btn");
+        taskdeltbtn.addEventListener("click", () => {
+          deleteGoal(index);
+        });
+
+        let toggle = card.querySelector(".checkbox");
+        toggle.addEventListener("click", () => {
+          toggleCompleted(index);
+        });
+
+      });
+    }
+
+    function addNewGoal() {
+
+         setGoal.style.display = "block";
+      
+       document.getElementById("goalForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value.trim();
+  console.log(title)
+  const category = document.getElementById("category").value;
+  const endDateInput = document.getElementById("endDate").value;
+  const endDate = new Date(endDateInput);
+  const now = new Date();
+
+  // Reset errors
+  document.getElementById("titleError").textContent = '';
+  document.getElementById("categoryError").textContent = '';
+  document.getElementById("dateError").textContent = '';
+
+  let isValid = true;
+
+  // Title validation
+  if (!title || title.length < 3) {
+    document.getElementById("titleError").textContent = "Title must be at least 3 characters.";
+    isValid = false;
+  }
+
+  // Category validation
+  if (!["SPORTING", "ACADEMIC", "HEALTH"].includes(category)) {
+    document.getElementById("categoryError").textContent = "Please select a valid category.";
+    isValid = false;
+  }
+
+  // Date validation
+  if (!endDateInput || endDate <= now) {
+    document.getElementById("dateError").textContent = "Enter a valid future date.";
+    isValid = false;
+  }
+
+  if (isValid) {
+    const goal = { title, category, startDate: new Date().toISOString(), endDate: endDate.toISOString(), completed: false };
+    goals.push(goal);
+    localStorage.setItem("dailyGoals", JSON.stringify(goals));
+    const resultMsg = document.getElementById("result");
+  const resultText = resultMsg.querySelector('.result-text');
+  const resultProgress = resultMsg.querySelector('.result-progress');
+
+  resultText.textContent = "Goal saved successfully!";
+  resultMsg.style.display = "block";
+  resultMsg.style.opacity = "1";
+  resultProgress.style.width = "100%";
+  // Force reflow for transition
+  void resultProgress.offsetWidth;
+  resultProgress.style.transition = "width 2s linear";
+  resultProgress.style.width = "0%";
+
+  setTimeout(() => {
+    resultMsg.style.opacity = "0";
+    setTimeout(() => {
+      resultMsg.style.display = "none";
+      resultText.textContent = "";
+      resultProgress.style.width = "100%";
+    }, 400); // fade out duration
+  }, 2000);
+
+    // Clear form
+    document.getElementById("goalForm").reset();
+    setGoal.style.display = "none";
+    renderGoals();
+  }
+});
+
+    }
+
+    function deleteGoal(index) {
+      goals.splice(index, 1);
+      localStorage.setItem('dailyGoals', JSON.stringify(goals));
+      renderGoals();
+    }
+
+     function toggleCompleted(index) {
+      goals[index].completed = !goals[index].completed;
+      localStorage.setItem('dailyGoals', JSON.stringify(goals));
+      renderGoals();
+    }
+
+    renderGoals()
+}
+
+function goalClose () {
+  let close = document.querySelector(".close")
+  let setGoal = document.querySelector(".set-goal")
+  
+  close.addEventListener("click", () => {
+    setGoal.style.display = "none"
+  })
+}
+
+goalClose()
+
+dailyGoals()

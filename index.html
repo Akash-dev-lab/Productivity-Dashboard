@@ -54,11 +54,11 @@
                     <h2>Motivation</h2>
                 </div>
                 <div class="pomo elem" id="3">
-                    <img src="https://i.pinimg.com/736x/7c/8c/87/7c8c8739e9e56c59f5eae1fd0006e44e.jpg" alt="">
+                    <img src="./clock.png" alt="">
                     <h2>Pomodoro Timer</h2>
                 </div>
                 <div class="goals elem" id="4">
-                    <img src="https://i.pinimg.com/736x/69/2d/6a/692d6ad509e1c5f0a40723fec1cce585.jpg" alt="">
+                    <img src="./arrow-board.png" alt="">
                     <h2>Daily Goals</h2>
                 </div>
             </div>
@@ -165,8 +165,76 @@
         </section>
 
         <section class="fullElem daily-goals-fullPage">
-            <h1>Daily Goals</h1>
+            <h1><span>Daily Goals</span></h1>
             <button class="back" id="4" type="button" title="Close"><i class="ri-close-large-line"></i></button>
+
+            <div class="container">
+                <section class="top-goals">
+                    <div class="goal-card">
+                        <p>📖 Read a book</p>
+                    </div>
+                    <div class="goal-card">
+                        <p>🌍 Save for trip</p>
+                    </div>
+                    <div class="goal-card">
+                        <p>💪 Gym 3x Week</p>
+                    </div>
+                </section>
+
+                <section class="weekly-goals">
+                    <div class="goal-btn">
+                        <h2>Weekly Goals</h2>
+                        <button class="add-goal-btn">New Goal</button>
+                    </div>
+
+                    <div id="result">
+                        <span class="result-text"></span>
+                        <div class="result-progress"></div>
+                    </div>
+
+
+                    <div class="goal-item">
+                        <div class="goal-title"></div>
+                        <div class="goal-meta"></div>
+                        <div class="goal-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <div class="goal-tag"></div>
+                    </div>
+                </section>
+
+                <div class="set-goal">
+                    <h1>Set Your <Span>Goal</Span></h1>
+                    <button title="close" class="close" type="button"><i class="ri-close-circle-line"></i></button>
+                    <form id="goalForm">
+                        <div class="form-group">
+                            <label for="title">Goal Title:</label>
+                            <input type="text" id="title" required />
+                            <span class="error" id="titleError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category:</label>
+                            <select id="category" required>
+                                <option value="">Select</option>
+                                <option value="SPORTING">SPORTING</option>
+                                <option value="ACADEMIC">ACADEMIC</option>
+                                <option value="HEALTH">HEALTH</option>
+                            </select>
+                            <span class="error" id="categoryError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="endDate">Deadline (YYYY-MM-DD):</label>
+                            <input type="date" id="endDate" required />
+                            <span class="error" id="dateError"></span>
+                        </div>
+
+                        <button type="submit">Save Goal</button>
+                    </form>
+
+                </div>
+            </div>
         </section>
     </div>
 
